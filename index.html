@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive AI Roleplay Bots</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      /* Electric Indigo (New Default Accent) */
+      --accent-color-50: #eef2ff;
+      --accent-color-100: #e0e7ff;
+      --accent-color-200: #c7d2fe;
+      --accent-color-300: #a5b4fc;
+      --accent-color-400: #818cf8;
+      --accent-color-500: #6366f1; /* Base */
+      --accent-color-600: #4f46e5;
+      --accent-color-700: #4338ca;
+      --accent-color-800: #3730a3;
+      --accent-color-900: #312e81;
+      --accent-color-950: #1e1b4b;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #0D1117; /* Near Black */
+      color: #C9D1D9; /* Light Gray Text */
+    }
+    /* Scrollbar styling for webkit browsers */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #161B22; /* Charcoal */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #30363D; /* Darker Gray */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #484F58; /* Slightly Lighter Gray on Hover */
+    }
+
+    /* Global Font Size Classes */
+    .font-size-sm { font-size: 0.875rem; line-height: 1.25rem; } /* text-sm */
+    .font-size-base { font-size: 1rem; line-height: 1.5rem; } /* text-base */
+    .font-size-lg { font-size: 1.125rem; line-height: 1.75rem; } /* text-lg */
+
+    /* Helper for applying dynamic background images with cover and fixed attachment */
+    .chat-bg-image {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* Optional: for a parallax-like effect */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/client": "https://esm.sh/react-dom@^19.1.0/client",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.3.0",
+    "@/App": "./App.tsx",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    // Tailwind dark mode default (though app is primarily dark)
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+        if (!('theme'in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // document.documentElement.classList.add('dark'); // App is dark by default
+        } else if (localStorage.theme === 'dark') {
+            // document.documentElement.classList.add('dark');
+        } else {
+            // document.documentElement.classList.remove('dark');
+        }
+    }
+  </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
